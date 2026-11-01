@@ -156,7 +156,7 @@ class MainActivity : Activity() {
         try {
             val reader = BufferedReader(InputStreamReader(socket.inputStream, Charsets.UTF_8))
             val writer = OutputStreamWriter(socket.outputStream, Charsets.UTF_8)
-            while (running && !socket.isClosed) {
+            while (running)  {
                 val line = reader.readLine() ?: break
                 appendLog("PC says: $line")
                 writer.write("PHONEKEYS_ACK:$line\n")
